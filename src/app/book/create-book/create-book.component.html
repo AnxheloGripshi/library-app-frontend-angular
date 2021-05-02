@@ -1,0 +1,60 @@
+<app-menu></app-menu>
+
+<div class="container">
+  <div class="container my-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <h3 class="text-info">Create Book/Update Book</h3>
+        <div class="card">
+          <div class="card-body">
+            <div class="alert alert-warning" *ngIf="bookForm.dirty && title.invalid">Please enter a title!
+            </div>
+            <div class="alert alert-warning" *ngIf="bookForm.dirty && description.invalid">Enter atleast 10
+              characters in
+              Description!</div>
+            <div class="alert alert-warning" *ngIf="bookForm.dirty && author.invalid">Please select an author!
+            </div>
+            <div class="alert alert-warning" *ngIf="bookForm.dirty && category.invalid">Please select a category!
+            </div>
+            <form (ngSubmit)="bookForm.valid && createOrUpdateBook()" #bookForm="ngForm">
+              <div class="form-group">
+                <b><label class="text-secondary" for="title">Title</label></b>
+                <input type="text" #title="ngModel" class="form-control" id="title" required [(ngModel)]="book.title"
+                  name="title">
+              </div>
+
+              <div class="form-group">
+                <b><label class="text-secondary" for="description">Description</label></b>
+                <input type="text" #description="ngModel" class="form-control" id="description" required
+                  [(ngModel)]="book.description" minlength="10" name="description">
+              </div>
+
+              <div class="form-group">
+                <b><label class="text-secondary" for="author">Author</label></b>
+                <select #author="ngModel" class="form-control" id="author" required [(ngModel)]="selectedAuthor"
+                  name="author">
+                  <option *ngFor="let author of authors" [ngValue]="author">{{author.name}}</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <b><label class="text-secondary" for="category">Category</label></b>
+                <select #category="ngModel" class="form-control mdb-select colorful-select dropdown-primary md-form"
+                  multiple id="category" required name="category" [(ngModel)]="selectedCategories">
+                  <option *ngFor="let category of categories" [ngValue]="category">{{category.name}}</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <b><label class="text-secondary" for="image">Image</label></b>
+                <input type="file" (change)="onFileChanged($event)">
+              </div>
+
+              <button class="btn btn-success">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
