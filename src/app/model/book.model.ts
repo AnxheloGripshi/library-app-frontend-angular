@@ -4,10 +4,10 @@ import { Category } from "./category.model";
 
 export class Book {
 
-    bookId: number = 0;
-    title: String = ''
-    description: String = ''
-    author: Author = new Author
-    categories: Array<Category> = []
+    bookId: number;
+    title: String;
+    description: String;
+    author: Author;
+    categories: Array<Category>;
 }
 

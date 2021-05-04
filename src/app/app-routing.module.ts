@@ -8,6 +8,7 @@ import { UpdateBookComponent } from './book/update-book/update-book.component';
 import { CreateCategoryComponent } from './category/create-category/create-category.component';
 import { ErrorComponent } from './error/error.component';
 import { LoginComponent } from './login/login.component';
+import { UploadImageComponent } from './upload-image/upload-image.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'create-category', component: CreateCategoryComponent },
   { path: 'books-list', component: BooksListComponent },
   { path: 'authors-list', component: AuthorListComponent },
+  { path: 'upload-image/:id', component: UploadImageComponent },
   { path: '**', component: ErrorComponent }
 ];
 

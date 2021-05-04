@@ -21,17 +21,17 @@ export class CreateBookComponent implements OnInit {
 
   selectedCategories: Category[] = [];
   selectedAuthor: Author = new Author();
+  selectedFile: File = null;
   id: number = -1;
+  message: string;
 
   constructor(private route: ActivatedRoute,
-    private router: Router,
     private authorService: AuthorService,
     private categoryService: CategoryService,
     private bookService: BookService) { }
 
 
   ngOnInit(): void {
-    debugger
     this.getAuthorsList();
     this.getCategoriesList();
     this.id = this.route.snapshot.params['id'];
@@ -61,6 +61,7 @@ export class CreateBookComponent implements OnInit {
     this.bookService.createBook(this.book)
       .subscribe(book => {
         console.log(book)
+        this.message = 'Book created successfully'
       }, error => console.log(error));
   }
 
@@ -69,21 +70,20 @@ export class CreateBookComponent implements OnInit {
     this.bookService.updateBook(this.book)
       .subscribe(book => {
         console.log(book)
+        this.message = 'Book updated successfully'
       }, error => console.log(error));
   }
 
   createOrUpdateBook() {
-    debugger
     this.book.author = this.selectedAuthor;
     this.book.categories = this.selectedCategories;
-
+    
     if (this.id == -1) {
       this.createBook()
     }
     else {
       this.updateBook()
     }
-    this.router.navigate(['/books-list']);
   }
 
   prefillBookData(id: number) {
@@ -92,8 +92,7 @@ export class CreateBookComponent implements OnInit {
         console.log(response)
         this.book.title = response.title
         this.book.description = response.description
-        this.book.author = response.author
-        this.book.categories = response.categories
+        this.selectedAuthor = response.author
       }, error => console.log(error));
   }
 }

@@ -11,30 +11,34 @@ export class BookService {
     private baseURL = 'http://localhost:8080/api'
 
     constructor(private http: HttpClient) {
-     
+
     }
 
-    getBooksList(){
+    getBooksList() {
 
-        return this.http.get<Book[]>(this.baseURL+'/books');
-    
+        return this.http.get<Book[]>(this.baseURL + '/books');
+
     }
 
-    createBook(book: Book){
-        return this.http.post(this.baseURL+'/create-book',book);
+    createBook(book: Book) {
+        return this.http.post(this.baseURL + '/create-book', book);
     }
 
-    updateBook(book: Book){
-        return this.http.put(this.baseURL+'/update-book',book);
+    updateBook(book: Book) {
+        return this.http.put(this.baseURL + '/update-book', book);
     }
 
-    deleteBook(id: number){
+    deleteBook(id: number) {
 
-        return this.http.delete(this.baseURL+'/delete-book/'+id);
+        return this.http.delete(this.baseURL + '/delete-book/' + id);
     }
 
-    findBook(id: number){
-        return this.http.get<Book>(this.baseURL+'/book/'+id)
+    findBook(id: number) {
+        return this.http.get<Book>(this.baseURL + '/book/' + id)
+    }
+
+    uploadImage(id: number, formData: FormData) {
+        return this.http.post(this.baseURL + '/upload-image/' + id, formData)
     }
 
 

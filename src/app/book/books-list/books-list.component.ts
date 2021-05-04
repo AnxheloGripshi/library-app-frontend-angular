@@ -11,15 +11,16 @@ import { BookService } from 'src/app/service/book.service';
 export class BooksListComponent implements OnInit {
 
   books: Book[] = []
+  selectedFile: File = null
   message?: string
-  constructor(private bookService: BookService,private router: Router) { }
+  constructor(private bookService: BookService, private router: Router) { }
 
   ngOnInit(): void {
-    this.refreshBooksList();
+    this.getBooksList();
 
   }
 
-  refreshBooksList() {
+  getBooksList() {
     this.bookService.getBooksList()
       .subscribe(books => {
         console.log(books)
@@ -28,20 +29,24 @@ export class BooksListComponent implements OnInit {
   }
 
   deleteBook(id: number) {
-    return this.bookService.deleteBook(id).subscribe(response=>{
+    return this.bookService.deleteBook(id).subscribe(response => {
       console.log("Book deleted!")
-      this.message='Book deleted successfully!'
-      this.refreshBooksList();
+      this.message = 'Book deleted successfully!'
+      this.getBooksList();
     })
   }
 
   showUpdatePage(id: number) {
     console.log(`update book ${id}`)
-    this.router.navigate(['/book',id])
+    this.router.navigate(['/book', id])
   }
 
   showCreatePage() {
-    this.router.navigate(['/book',-1])
+    this.router.navigate(['/book', -1])
+  }
+
+  showUploadImagePage(bookId: number) {
+    this.router.navigate(['/upload-image', bookId])
   }
 
 }

@@ -17,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CreateAuthorComponent } from './author/create-author/create-author.component';
 import { CreateCategoryComponent } from './category/create-category/create-category.component';
 import { AuthorListComponent } from './author/author-list/author-list.component';
+import { UploadImageComponent } from './upload-image/upload-image.component';
 // import { UpdateAuthorComponent } from './update-author/update-author.component';
 // import { AuthorListComponent } from './author-list/author-list.component';
 // import { CreateCategoryComponent } from './create-category/create-category.component';
@@ -35,7 +36,8 @@ import { AuthorListComponent } from './author/author-list/author-list.component'
     MenuComponent,
     CreateAuthorComponent,
     CreateCategoryComponent,
-    AuthorListComponent
+    AuthorListComponent,
+    UploadImageComponent
     // UpdateAuthorComponent,
     // UpdateCategoryComponent,
     // CategoryListComponent
