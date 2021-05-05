@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginData } from '../model/loginData.model';
+import { OauthService } from '../service/oauth.service';
 
 @Component({
   selector: 'app-login',
@@ -8,25 +10,29 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  username = ''
-  password = ''
+  loginData: LoginData = new LoginData();
   errorMessage = 'Invalid credentials!'
   invalidLogin = false
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private oauthService: OauthService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
-  showLogin(){
-    // console.log(this.username);
-    if(this.username === "anxhelo" && this.password === 'anxhelo123'|| this.username === 'test' && this.password === 'test123'){
-      //Redirect to Welcome page
-      this.router.navigate(['welcome',this.username])
-    this.invalidLogin =  false
-    } else {
-      this.invalidLogin = true
-    }
+  login() {
+
+    this.oauthService.authenticate(this.loginData).subscribe(
+      data => {
+        console.log(data)
+        this.router.navigate(['books-list'])
+        this.invalidLogin = false      
+      },
+      error => {
+        console.log(error)
+        this.invalidLogin = true
+      }
+    )
+
   }
 
 }

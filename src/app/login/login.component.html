@@ -1,8 +1,32 @@
-<small *ngIf='invalidLogin'>{{errorMessage}}</small>
+<div class="container">
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="alert alert-danger" *ngIf='invalidLogin'>{{errorMessage}}</div>
+                <h3 class="text-info">Login</h3>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="alert alert-warning" *ngIf="loginForm.dirty && username.invalid">Enter the username!
+                        </div>
+                        <div class="alert alert-warning" *ngIf="loginForm.dirty && password.invalid">Enter the password!</div>
+                        <form (ngSubmit)="!loginForm.invalid && login()" #loginForm="ngForm">
+                            <div class="form-group">
+                                <b><label class="text-secondary" for="username">Username</label></b>
+                                <input type="text" #username="ngModel" class="form-control" id="username" required
+                                    [(ngModel)]="loginData.username" name="username">
+                            </div>
 
-<div>
-Username : <input type="text" name="username" [(ngModel)]="username">
-Password : <input type="password" name="password" [(ngModel)]="password">
+                            <div class="form-group">
+                                <b><label class="text-secondary" for="password">Password</label></b>
+                                <input type="password" #password="ngModel" class="form-control" id="password" required
+                                    [(ngModel)]="loginData.password" name="password">
+                            </div>
 
-<button (click)=showLogin()>Login</button>
+                            <button type="submit" class="btn btn-success">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

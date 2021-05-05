@@ -37,7 +37,7 @@ import { UploadImageComponent } from './upload-image/upload-image.component';
     CreateAuthorComponent,
     CreateCategoryComponent,
     AuthorListComponent,
-    UploadImageComponent
+    UploadImageComponent,
     // UpdateAuthorComponent,
     // UpdateCategoryComponent,
     // CategoryListComponent
