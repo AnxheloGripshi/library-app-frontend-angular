@@ -14,7 +14,7 @@ export const BEARER = "Bearer "
     providedIn: 'root'
 })
 
-export class OauthService {
+export class AuthService {
 
     constructor(private http: HttpClient) {
 

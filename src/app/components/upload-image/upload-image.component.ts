@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { BookService } from '../service/book.service';
+import { BookService } from 'src/app/service/book.service';
 
 @Component({
   selector: 'app-upload-image',

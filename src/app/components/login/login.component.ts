@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoginData } from '../model/loginData.model';
-import { OauthService } from '../service/oauth.service';
+import { LoginData } from 'src/app/model/loginData.model';
+import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -14,14 +14,14 @@ export class LoginComponent implements OnInit {
   errorMessage = 'Invalid credentials!'
   invalidLogin = false
 
-  constructor(private router: Router, private oauthService: OauthService) { }
+  constructor(private router: Router, private authService: AuthService) { }
 
   ngOnInit() {
   }
 
   login() {
 
-    this.oauthService.authenticate(this.loginData).subscribe(
+    this.authService.authenticate(this.loginData).subscribe(
       data => {
         console.log(data)
         this.router.navigate(['books-list'])
