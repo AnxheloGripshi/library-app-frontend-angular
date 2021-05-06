@@ -4,7 +4,6 @@
   <div class="container my-5">
     <div class="row justify-content-center">
       <div class="col-md-8">
-        <h3 class="text-info">Create Book/Update Book</h3>
         <div class="alert alert-success" *ngIf='message'>{{message}}</div>
         <div class="card">
           <div class="card-body">
@@ -34,7 +33,7 @@
                 <b><label class="text-secondary" for="author">Author</label></b>
                 <select #author="ngModel" class="form-control" id="author" required [(ngModel)]="selectedAuthor"
                   name="author">
-                  <option *ngFor="let author of authors"  [value]="author">{{author.name}}</option>
+                  <option *ngFor="let author of authors"  [ngValue]="author">{{author.name}}</option>
                 </select>
               </div>
 

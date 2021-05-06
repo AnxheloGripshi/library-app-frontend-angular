@@ -75,6 +75,7 @@ export class CreateBookComponent implements OnInit {
   }
 
   createOrUpdateBook() {
+    debugger
     this.book.author = this.selectedAuthor;
     this.book.categories = this.selectedCategories;
     

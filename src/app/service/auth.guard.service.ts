@@ -10,8 +10,10 @@ export class AuthGuardService implements CanActivate {
     canActivate(): boolean {
         if (!this.auth.isUserLoggedIn()) {
             this.router.navigate(['login']);
+            console.log("not authenticated")
             return false;
         }
+        console.log("authenticated")
         return true;
     }
 }
