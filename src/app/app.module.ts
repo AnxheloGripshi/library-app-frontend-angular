@@ -4,7 +4,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { WelcomeComponent } from './welcome/welcome.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BookService } from './service/book.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -24,7 +23,6 @@ import { CategoryListComponent } from './components/category/category-list/categ
 @NgModule({
   declarations: [
     AppComponent,
-    WelcomeComponent,
     LoginComponent,
     ErrorComponent,
     CreateBookComponent,
