@@ -10,20 +10,29 @@ import { CategoryService } from 'src/app/service/category.service';
 export class CategoryListComponent implements OnInit {
 
   categories: Category[] = []
+  message: string
 
   constructor(private categoryService: CategoryService) { }
 
   ngOnInit(): void {
-    this.getAllAuthors();
+    this.getAllCategories();
   }
 
-  getAllAuthors() {
+  getAllCategories() {
 
     this.categoryService.getCategoriesList()
       .subscribe(categories => {
         console.log(categories)
         this.categories = categories;
       });
+  }
+
+  deleteCategory(categoryId: number) {
+    return this.categoryService.deleteCategory(categoryId).subscribe(response => {
+      console.log("Category deleted!")
+      this.message = 'Category deleted successfully!'
+      this.getAllCategories();
+    })
   }
 
 }
