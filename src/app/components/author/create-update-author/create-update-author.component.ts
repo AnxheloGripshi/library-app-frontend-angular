@@ -4,9 +4,9 @@ import { Author } from 'src/app/model/author.model';
 import { AuthorService } from 'src/app/service/author.service';
 
 @Component({
-  selector: 'app-create-author',
-  templateUrl: './create-author.component.html',
-  styleUrls: ['./create-author.component.css']
+  selector: 'app-create-update-author',
+  templateUrl: './create-update-author.component.html',
+  styleUrls: ['./create-update-author.component.css']
 })
 export class CreateAuthorComponent implements OnInit {
 

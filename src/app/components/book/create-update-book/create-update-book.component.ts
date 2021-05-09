@@ -9,9 +9,9 @@ import { BookService } from 'src/app/service/book.service';
 import { CategoryService } from 'src/app/service/category.service';
 
 @Component({
-  selector: 'app-create-book',
-  templateUrl: './create-book.component.html',
-  styleUrls: ['./create-book.component.css']
+  selector: 'app-create-update-book',
+  templateUrl: './create-update-book.component.html',
+  styleUrls: ['./create-update-book.component.css']
 })
 export class CreateBookComponent implements OnInit {
 

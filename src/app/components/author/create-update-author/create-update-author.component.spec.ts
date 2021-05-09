@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CreateAuthorComponent } from './create-author.component';
+import { CreateAuthorComponent } from './create-update-author.component';
 
 describe('CreateAuthorComponent', () => {
   let component: CreateAuthorComponent;

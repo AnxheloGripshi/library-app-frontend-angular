@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthorListComponent } from './components/author/author-list/author-list.component';
-import { CreateAuthorComponent } from './components/author/create-author/create-author.component';
+import { CreateAuthorComponent } from './components/author/create-update-author/create-update-author.component';
 import { BooksListComponent } from './components/book/books-list/books-list.component';
-import { CreateBookComponent } from './components/book/create-book/create-book.component';
+import { CreateBookComponent } from './components/book/create-update-book/create-update-book.component';
 import { CategoryListComponent } from './components/category/category-list/category-list.component';
 import { CreateCategoryComponent } from './components/category/create-category/create-category.component';
 import { ErrorComponent } from './components/error/error.component';
