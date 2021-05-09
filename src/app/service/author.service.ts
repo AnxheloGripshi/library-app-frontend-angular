@@ -21,4 +21,18 @@ export class AuthorService {
     createAuthor(author: Author) {
         return this.http.post(this.baseURL + '/create-author', author)
     }
+
+    updateAuthor(author: Author) {
+        return this.http.put(this.baseURL + '/update-author', author);
+    }
+
+    deleteAuthor(id: number) {
+
+        return this.http.delete(this.baseURL + '/delete-author/' + id);
+    }
+
+    
+    findAuthor(id: number) {
+        return this.http.get<Author>(this.baseURL + '/author/' + id)
+    }
 }

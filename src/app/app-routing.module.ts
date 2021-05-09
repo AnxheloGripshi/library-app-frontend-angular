@@ -16,7 +16,7 @@ const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   { path: 'login', component: LoginComponent },
   { path: 'book/:id', component: CreateBookComponent,canActivate: [AuthGuardService] },
-  { path: 'create-author', component: CreateAuthorComponent,canActivate: [AuthGuardService]},
+  { path: 'author/:id', component: CreateAuthorComponent,canActivate: [AuthGuardService]},
   { path: 'create-category', component: CreateCategoryComponent,canActivate: [AuthGuardService] },
   { path: 'books-list', component: BooksListComponent,canActivate: [AuthGuardService] },
   { path: 'authors-list', component: AuthorListComponent,canActivate: [AuthGuardService] },

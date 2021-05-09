@@ -12,7 +12,7 @@ export class BooksListComponent implements OnInit {
 
   books: Book[] = []
   selectedFile: File = null
-  message?: string
+  message: string
   constructor(private bookService: BookService, private router: Router) { }
 
   ngOnInit(): void {

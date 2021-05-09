@@ -5,7 +5,6 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="alert alert-success" *ngIf='message'>{{message}}</div>
-                <h3 class="text-info">Create Author</h3>
                 <div class="card">
                     <div class="card-body">
                         <div class="alert alert-warning" *ngIf="authorForm.dirty && name.invalid">Enter a valid name!
@@ -13,7 +12,7 @@
                         <div class="alert alert-warning" *ngIf="authorForm.dirty && bio.invalid">Enter atleast 10
                             characters in
                             Biography!</div>
-                        <form (ngSubmit)="!authorForm.invalid && createAuthor()" #authorForm="ngForm">
+                        <form (ngSubmit)="!authorForm.invalid && createOrUpdateAuthor()" #authorForm="ngForm">
                             <div class="form-group">
                                 <b><label class="text-secondary" for="name">Name</label></b>
                                 <input type="text" #name="ngModel" class="form-control" id="name" required

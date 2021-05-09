@@ -22,7 +22,7 @@ export class CreateBookComponent implements OnInit {
   selectedCategories: Category[] = [];
   selectedAuthor: Author = new Author();
   selectedFile: File = null;
-  id: number = -1;
+  id: number;
   message: string;
 
   constructor(private route: ActivatedRoute,
@@ -75,7 +75,6 @@ export class CreateBookComponent implements OnInit {
   }
 
   createOrUpdateBook() {
-    debugger
     this.book.author = this.selectedAuthor;
     this.book.categories = this.selectedCategories;
     
