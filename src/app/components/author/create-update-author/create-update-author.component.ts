@@ -17,7 +17,6 @@ export class CreateAuthorComponent implements OnInit {
   constructor(private authorService: AuthorService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    debugger
     this.id = this.route.snapshot.params['id'];
     if(this.id != -1){
       this.prefillAuthorData(this.id)

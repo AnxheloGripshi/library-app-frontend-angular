@@ -26,7 +26,10 @@
             <tr *ngFor="let book of books">
                 <td>{{book.title}}</td>
                 <td>{{book.description}}</td>
-                <td>{{book.author.name}}</td>
+                <td *ngIf = 'book.author != null; else emptyAuthor'>{{book.author.name}}</td>
+                <ng-template #emptyAuthor>
+                   <td></td>
+                  </ng-template>
                 <td><span *ngFor="let category of book.categories">{{category.name+' '}}</span></td>
                 <td>
                     <button (click)="showUpdatePage(book.bookId)" class="btn"><i class="bi bi-pencil" style="color:green"
