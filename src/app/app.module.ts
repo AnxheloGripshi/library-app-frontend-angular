@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BookService } from './service/book.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './components/login/login.component';
 import { ErrorComponent } from './components/error/error.component';
 import { CreateBookComponent } from './components/book/create-update-book/create-update-book.component';
@@ -19,6 +19,7 @@ import { UploadImageComponent } from './components/upload-image/upload-image.com
 import { LogoutComponent } from './components/logout/logout.component';
 import { AuthGuardService } from './service/auth.guard.service';
 import { CategoryListComponent } from './components/category/category-list/category-list.component';
+import { HttpIntercepterBasicAuthService } from './service/http.interseptor.oauth.service';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { CategoryListComponent } from './components/category/category-list/categ
     HttpClientModule
   ],
   providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: HttpIntercepterBasicAuthService, multi:true},
     BookService,
     AuthGuardService],
   bootstrap: [AppComponent]
