@@ -21,8 +21,9 @@
 
                             <div class="form-group">
                                 <b><label class="text-secondary" for="bio">Biography</label></b>
-                                <input type="text" #bio="ngModel" class="form-control" id="bio" required
-                                    [(ngModel)]="author.bio" minlength="10" name="bio">
+                                <textarea #bio="ngModel" class="form-control" id="bio" required [(ngModel)]="author.bio"
+                                    minlength="10" name="bio">
+                                </textarea>
                             </div>
 
                             <button type="submit" class="btn btn-success">Submit</button>
